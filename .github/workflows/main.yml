@@ -24,6 +24,9 @@ jobs:
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=devops-2022
           -Dsonar.organization=devops-cpe
           -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN }} --file backend-API/simple-api/pom.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
@@ -95,14 +98,6 @@ jobs:
           context: http
           tags: ${{secrets.DOCKERHUB_USERNAME}}/http:1
           push: ${{ github.ref == 'refs/heads/main' }}
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-
-
 
 
 

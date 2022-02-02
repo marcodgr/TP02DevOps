@@ -20,8 +20,10 @@ jobs:
           java-version: '11'
       #finally build your app with the latest command
       - name: Build and test with Maven
-        run: mvn clean verify
+        run: mvn clean verify --file /backend-API/simple-api
 
 
 
 
+
+dzzad

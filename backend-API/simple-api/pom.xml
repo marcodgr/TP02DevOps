@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
-		<sonar.organization>marcodgrc</sonar.host.url>
+		<sonar.organization>marcodgrc</sonar.organization>
 		<sonar.host.url>https://sonar.cloud.io</sonar.host.url>
 	</properties>
 

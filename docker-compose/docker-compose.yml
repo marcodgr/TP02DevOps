@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+backend:
+build:
+	#TODO
+networks:
+#TODO
+depends_on:
+#TODO
+database:
+build:
+#TODO
+networks:
+#TODO
+httpd:
+build:
+#TODO
+ports:
+-"80:80"
+-"8081:8080"
+
+networks:
+-"app-network"
+
+depends_on:
+#TODO
+networks:
+my-network:

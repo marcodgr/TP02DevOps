@@ -15,12 +15,15 @@
 	<description>Simple API demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
-	</properties>
-
-	<properties>
+	
 		<sonar.organization>marcodgr</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	
 	</properties>
+
+	
+		
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

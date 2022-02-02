@@ -30,29 +30,29 @@ jobs:
 
 
 
-# define job to build and publish docker image
-build-and-push-docker-image:
-  needs: test-backend
-  # run only when code is compiling and tests are passing
-  runs-on: ubuntu-latest
-  # steps to perform in job
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Build image and push backend
-      uses: docker/build-push-action@v2
-      with:
-        # relative path to the place where source code with Dockerfile is located
-        context: backend-API/simple-api
+  # define job to build and publish docker image
+  build-and-push-docker-image:
+    needs: test-backend
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-latest
+    # steps to perform in job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build image and push backend
+        uses: docker/build-push-action@v2
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: backend-API/simple-api
 # Note: tags has to be all lower-case
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:simple-api
-    - name: Build image and push database
-      with:
-        # relative path to the place where source code with Dockerfile is located
-        context: database
-    - name: Build image and push httpd
-      with:
-        # relative path to the place where source code with Dockerfile is located
-        context: http
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:simple-api
+      - name: Build image and push database
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: database
+      - name: Build image and push httpd
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: http
 
 

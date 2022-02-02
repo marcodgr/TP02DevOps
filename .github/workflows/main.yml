@@ -47,8 +47,12 @@ build-and-push-docker-image:
 # Note: tags has to be all lower-case
         tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:simple-api
     - name: Build image and push database
-      # DO the same for database
+      with:
+        # relative path to the place where source code with Dockerfile is located
+        context: database
     - name: Build image and push httpd
-      # DO the same for httpd
+      with:
+        # relative path to the place where source code with Dockerfile is located
+        context: http
 
 
